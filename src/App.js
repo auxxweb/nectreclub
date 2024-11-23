@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './components/navbar';
+import Banner from './components/Banner';
+import FlashNews from './components/Flash';
+// import HalfCircleCarouselAutoplay from './components/Carousal';
+import Request from './components/Request';
+import Footer from './components/Footer';
+// import Carousel from './components/Carousal';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Navbar/>
+        <Banner />
+        <FlashNews/>
+        {/* <HalfCircleCarouselAutoplay/> */}
+        {/* <Carousel /> */}
+        <Request />
+        <Footer />
       </header>
     </div>
   );
