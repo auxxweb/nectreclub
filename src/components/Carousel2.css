@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* .carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 70vh;
+  background: var(--body-color);
+} */
+
+:root {
+  --body-color: #000000;
+}
+
+/* .swiper {
+  position: relative;
+  margin-top: auto;
+  width: 990px;
+  margin-inline: auto;
+} */
+
+.swiper::before {
+  content: "";
+  position: absolute;
+  top: -85px;
+  left: -10%;
+  width: 150%;
+  height: 100px;
+  background: var(--body-color);
+  border-radius: 100%;
+  z-index: 100;
+}
+.swiper::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: -10%;
+  width: 120%;
+  height: 90px;
+  background: var(--body-color);
+  border-radius: 100%;
+  z-index: 1000;
+}

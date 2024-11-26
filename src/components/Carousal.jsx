@@ -1,77 +1,102 @@
-import React, { useState, useEffect ,useCallback } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import gsap from "gsap";
+import "./Carousal.css";
 
-const HalfCircleCarouselAutoplay = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Carousel = () => {
+  const [rotationY, setRotationY] = useState(0); // State to track the rotation
+  const [selectedImage, setSelectedImage] = useState(null); // State for the selected image
 
-  const images = [
-    "/images/1.jpeg",
-    "/images/3.jpeg",
-    "/images/4.jpeg",
-    "/images/5.jpeg",
-    "/images/3.jpeg",
+  // Memoize the images array
+  const images = useMemo(
+    () => [
+      "/images/1.jpeg",
+      "/images/2.jpeg",
+      "/images/3.jpeg",
+      "/images/4.jpeg",
+      "/images/5.jpeg",
+      "/images/6.jpeg",
+      "/images/7.jpeg",
+      "/images/8.jpeg",
+      "/images/9.jpeg",
+      "/images/10.jpeg",
+    ],
+    [] // Empty dependency array means it won't change
+  );
 
-  ];
+  const handleClick = (i) => {
+    const allImages = document.querySelectorAll(".img");
+    allImages.forEach((img) => img.classList.remove("popped"));
+    allImages[i].classList.add("popped");
+    setSelectedImage(images[i]); // Set the clicked image for zoom
+  };
 
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  },[images.length]);
+  const closeZoom = () => {
+    setSelectedImage(null); // Close the zoomed-in image
+  };
 
   useEffect(() => {
-    const autoplay = setInterval(() => {
-      handleNext();
-    }, 3000); // Change images every 3 seconds
+    // Setup images on the ring
+    gsap.set(".img", {
+      rotateY: (i) => i * 36, // Distribute images evenly around the circle
+      transformOrigin: "50% 50% 300px",
+      z: -300,
+      backgroundImage: (i) => `url(${images[i]})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      width: "150px",
+      height: "200px",
+      borderRadius: "10px",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+      backfaceVisibility: "hidden",
+    });
 
-    return () => clearInterval(autoplay); // Clean up the interval on component unmount
-  }, [handleNext]);
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") {
+        const newRotation = rotationY - 36;
+        setRotationY(newRotation);
+      } else if (e.key === "ArrowLeft") {
+        const newRotation = rotationY + 36;
+        setRotationY(newRotation);
+      }
+    };
+
+    gsap.to(".img", {
+      rotateY: (i) => i * 36 + rotationY,
+      duration: 0.5,
+      ease: "power3.out",
+    });
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [rotationY, images]);
 
   return (
-    <div className="relative w-4/5 mx-auto perspective-[1000px]">
-      <div className="flex justify-center items-center transform-style-[preserve-3d] transition-transform duration-1000 ease-in-out relative w-full h-[400px] top-8">
-        {images.map((image, index) => {
-          const angle = (index - currentIndex) * 30; // Adjust angle for item spacing
-          const isVisible = Math.abs(index - currentIndex) <= 2; // Show only items in the front half
-
-          return isVisible ? (
+    <div className="carousel-container">
+      <div className="stage">
+        <div className="ring">
+          {Array.from({ length: images.length }).map((_, i) => (
             <div
-              key={index}
-              style={{
-                ...styles.carouselItem,
-                transform: `rotateY(${angle}deg) translateZ(300px)`,
-              }}
-            >
-              <img src={image} alt={`Slide ${index}`} style={styles.image} />
-            </div>
-          ) : null;
-        })}
+              key={i}
+              className="img"
+              onClick={() => handleClick(i)}
+            ></div>
+          ))}
+        </div>
       </div>
+      {selectedImage && (
+        <div className="modal" onClick={closeZoom}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImage} alt="Zoomed" />
+            <button className="close-btn" onClick={closeZoom}>
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-const styles = {
-  
-  carousel: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    transformStyle: "preserve-3d",
-    transition: "transform 1s ease",
-    position: "relative",
-    width: "100%",
-    height: "400px", // Height of the carousel container
-  },
-  carouselItem: {
-    position: "absolute",
-    width: "300px",
-    height: "200px",
-    transition: "transform 1s ease",
-    transformOrigin: "center center -300px", // Make the rotation happen around a point
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    borderRadius: "10px",
-  },
-};
-
-export default HalfCircleCarouselAutoplay;
+export default Carousel;

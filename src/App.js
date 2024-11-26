@@ -6,6 +6,7 @@ import FlashNews from './components/Flash';
 import Request from './components/Request';
 import Footer from './components/Footer';
 // import Carousel from './components/Carousal';
+import  Carousel2 from './components/Carousel2';
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,9 @@ function App() {
         <Banner />
         <FlashNews/>
         {/* <HalfCircleCarouselAutoplay/> */}
+       
         {/* <Carousel /> */}
+        <Carousel2 />
         <Request />
         <Footer />
       </header>
