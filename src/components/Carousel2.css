@@ -31,8 +31,8 @@ img {
 .swiper::before {
   content: "";
   position: absolute;
-  top: -85px;
-  left: -10%;
+  top: -75px;
+  left: -26%;
   width: 150%;
   height: 100px;
   background: var(--body-color);
