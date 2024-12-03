@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../index.css"; // Ensure Tailwind is imported and working
-
+import { Link } from "react-router-dom"; // Import Link for routing
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLinksVisible, setIsLinksVisible] = useState(false);
@@ -86,7 +86,7 @@ const Navbar = () => {
                   isScrolled ? "text-black xs:text-[12px] sm:text-[15px]" : "text-white"
                 }`}
               >
-                <a href="#blog" className="hover:font-bold">Blog</a>
+                <Link to="/Blog" className="hover:font-bold">Blog</Link>
                 <a href="#resources" className="hover:font-bold">Resources</a>
                 <a href="#login" className="hover:font-bold">Login</a>
               </div>
@@ -120,7 +120,7 @@ const Navbar = () => {
                     isScrolled ? "text-black" : "text-white"
                   }`}
                 >
-                  <a href="#blog" className="hover:scale-110 transition-transform duration-200 hover:font-bold">Blog</a>
+                  <a href="./Blog" className="hover:scale-110 transition-transform duration-200 hover:font-bold">Blog</a>
                   <a href="#resources" className="hover:scale-110 transition-transform duration-200 hover:font-bold">Resources</a>
                   <a href="#login" className="hover:scale-110 transition-transform duration-200 hover:font-bold">Login</a>
                 </div>

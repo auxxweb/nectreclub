@@ -6,6 +6,7 @@
 
 img {
   max-width: 100%;
+  
 }
 
 /* .carousel-container {
@@ -31,10 +32,10 @@ img {
 .swiper::before {
   content: "";
   position: absolute;
-  top: -75px;
+  top: -65px;
   left: -26%;
   width: 150%;
-  height: 100px;
+  height: 90px;
   background: var(--body-color);
   border-radius: 100%;
   z-index: 100;

@@ -23,13 +23,17 @@ const Carousel = () => {
             spaceBetween: 10,
           },
           // For medium screens and up, show 4 slides
+          640:{
+            slidesPerview:2,
+            spaceBetween: 10,
+          },
           768: {
-            slidesPerView: 2, // You can also set this to 3 or other values depending on your design
+            slidesPerView: 3, // You can also set this to 3 or other values depending on your design
             spaceBetween: 20,
           },
           // For large screens and up, keep the default 4 slides per view
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 5,
             spaceBetween: 20,
           },
         }}

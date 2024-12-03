@@ -1,27 +1,22 @@
 import './App.css';
-import Navbar from './components/navbar';
-import Banner from './components/Banner';
-import FlashNews from './components/Flash';
-// import HalfCircleCarouselAutoplay from './components/Carousal';
-import Request from './components/Request';
-import Footer from './components/Footer';
-// import Carousel from './components/Carousal';
-import  Carousel2 from './components/Carousel2';
+
+import Blog from './components/Blog';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Correct import of BrowserRouter, Routes, and Route
+import Home from './components/Home';
+import BlogDetail from './components/BlogDetail';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar/>
-        <Banner />
-        <FlashNews/>
-        {/* <HalfCircleCarouselAutoplay/> */}
-       
-        {/* <Carousel /> */}
-        <Carousel2 />
-        <Request />
-        <Footer />
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+     
+          <Routes>
+            <Route path='/'  element= {<Home/>}/>
+            <Route path="/blog" element={<Blog />} /> {/* Path corrected to lowercase */}
+            <Route path="/blog/:id" element={<BlogDetail />} />
+          </Routes>
+      </div>
+    </Router>
   );
 }
 
