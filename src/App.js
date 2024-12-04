@@ -1,19 +1,22 @@
 import './App.css';
 
-import Blog from './components/Blog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Correct import of BrowserRouter, Routes, and Route
-import Home from './components/Home';
-import BlogDetail from './components/BlogDetail';
+import Home from './pages/Home';
+import BlogDetail from './pages/BlogDetail';
+import Blogs from './components/Blogs';
+import BlogDetails from './components/BlogsDetails';
 
 function App() {
   return (
     <Router>
       <div className="App">
-     
           <Routes>
             <Route path='/'  element= {<Home/>}/>
-            <Route path="/blog" element={<Blog />} /> {/* Path corrected to lowercase */}
-            <Route path="/blog/:id" element={<BlogDetail />} />
+            <Route path="/blog" element={<Blogs />} />
+            <Route path="/blogdetails" element={<BlogDetails />} />
+
+             {/* Path corrected to lowercase */}
+            {/* <Route path="/blog/:id" element={<BlogDetail />} /> */}
           </Routes>
       </div>
     </Router>
