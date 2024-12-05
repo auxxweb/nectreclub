@@ -1,102 +1,145 @@
-import React from 'react';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import clsx from "clsx"; // Assuming you're using clsx for className management like cn
 
-const BlogDetails = () => {
+export default function BlogDetails() {
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* Top Section: Logo and Search */}
-      <div className="bg-white shadow-md p-4 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          {/* Logo */}
-          
-          
-          <div className="container flex  items-center gap-4">
-      <a href="#" className="logo flex items-center space-x-2">
-        <span className="logo-text text-3xl font-bold text-black duration-200">
-          NectereClub  
-        </span>
-        {/* Arrow icon */}
-        <span className="text-xl text-black transform transition-all duration-200">
-          &#8658; 
-        </span>
-      </a>
-      <a href="#" className="logo">
-        <span className="logo-text text-center text-2xl font-semibold text-gray-800 duration-200">
-          BlogDetails
-        </span>
-      </a>
-      </div>
-
-
-        </div>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="p-2 border rounded-full pl-8 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <svg
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            width="20"
-            height="20"
+    <div className={clsx("min-h-screen bg-white text-black antialiased")}>
+      {/* Navigation */}
+      <nav className="border-b border-gray-800">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <NavLink
+            to="/"
+            className="text-xl font-bold tracking-tighter hover:text-gray-300"
           >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="16" y1="16" x2="22" y2="22" />
-          </svg>
-        </div>
-      </div>
-
-
-
-
-
-      {/* Main Content Section */}
-      <div className="max-w-4xl mx-auto p-6">
-        {/* Article Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold">This new JavaScript operator is an absolute game changer</h2>
-          <div className="flex items-center space-x-4">
-            <span className="text-gray-500 text-sm">5.2K</span>
-            <span className="text-gray-500 text-sm">73</span>
+            JAMES CLEAR
+          </NavLink>
+          <div className="flex items-center space-x-6 text-sm">
+            <NavLink to="/books" className="hover:text-gray-300">
+              Books
+            </NavLink>
+            <NavLink to="/articles" className="hover:text-gray-300">
+              Articles
+            </NavLink>
+            <NavLink to="/newsletter" className="hover:text-gray-300">
+              Newsletter
+            </NavLink>
+            <NavLink to="/app" className="hover:text-gray-300">
+              App
+            </NavLink>
+            <NavLink to="/speaking" className="hover:text-gray-300">
+              Speaking
+            </NavLink>
+            <NavLink to="/about" className="hover:text-gray-300">
+              About
+            </NavLink>
           </div>
         </div>
+      </nav>
 
-        {/* Article Image */}
-        <img
-          src="https://img.freepik.com/free-photo/online-blog_53876-123696.jpg"
-          alt="JavaScript operator"
-          className="w-full h-72 object-cover rounded-lg shadow-md mb-6"
-        />
+      {/* Main Content */}
+      <main className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12">
+        <article className="prose prose-invert lg:prose-lg max-w-none">
+          <h1 className="text-4xl font-bold tracking-tight mb-6">
+            For a More Creative Brain Follow These 5 Steps
+          </h1>
 
-        {/* Article Body */}
-        <p className="text-lg text-gray-700 mb-4">
-          An amazing new JavaScript operator has arrived and things are not looking too good for try-catch!
-          An amazing new JavaScript operator has arrived and things are not looking too good for try-catch!
-          An amazing new JavaScript operator has arrived and things are not looking too good for try-catch!
-          An amazing new JavaScript operator has arrived and things are not looking too good for try-catch!
-          An amazing new JavaScript operator has arrived and things are not looking too good for try-catch!
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          With the new <strong className="text-blue-500">safe assignment operator</strong>, you'll stop writing code like this:
-        </p>
+          <div className="flex items-center text-sm text-gray-400 mb-12">
+            <span>written by  </span>
+            <span>Sahal Palayat</span>
+            <NavLink
+              to="/author"
+              className="mx-2 text-white hover:text-gray-300"
+            >
+              JAMES CLEAR
+            </NavLink>
+            <span className="mx-2">|</span>
+            <NavLink
+              to="/category/creativity"
+              className="hover:text-gray-300"
+            >
+              CREATIVITY
+            </NavLink>
+            <span className="mx-2">,</span>
+            <NavLink
+              to="/category/productivity"
+              className="hover:text-gray-300"
+            >
+              PRODUCTIVITY
+            </NavLink>
+          </div>
 
-        {/* Code Block */}
-        <div className="bg-gray-800 text-white p-4 rounded-lg shadow-md">
-          <pre>
-            <code>
-              {`const [err, res] = await fetch('https://codingbeautydev.com');`}
-            </code>
-          </pre>
-        </div>
-      </div>
+          <div className="text-gray-300 ">
+            <p className="text-lg">
+              Nearly all great ideas follow a similar creative process and this
+              article explains how this process works. Understanding this is
+              important because creative thinking is one of the most useful
+              skills you can possess. Nearly every problem you face in work and
+              in life can benefit from innovative solutions, lateral thinking,
+              and creative ideas.
+            </p>
+
+            <p className="text-lg mt-6">
+              Anyone can learn to be creative by using these five steps. That's
+              not to say being creative is easy. Uncovering your creative genius
+              requires courage and tons of practice. However, this five-step
+              approach should help demystify the creative process and illuminate
+              the path to more innovative thinking.
+            </p>
+            <p className="text-lg mt-6">
+              Anyone can learn to be creative by using these five steps. That's
+              not to say being creative is easy. Uncovering your creative genius
+              requires courage and tons of practice. However, this five-step
+              approach should help demystify the creative process and illuminate
+              the path to more innovative thinking.
+            </p>
+            <p className="text-lg mt-6">
+              Anyone can learn to be creative by using these five steps. That's
+              not to say being creative is easy. Uncovering your creative genius
+              requires courage and tons of practice. However, this five-step
+              approach should help demystify the creative process and illuminate
+              the path to more innovative thinking.
+            </p>
+
+            <p className="text-lg mt-6">
+              To explain how this process works, let me tell you a short story.
+            </p>
+
+            <h2 className="text-2xl font-bold mt-12 mb-6">
+              A Problem in Need of a Creative Solution
+            </h2>
+          </div>
+        </article>
+
+        {/* Sidebar */}
+        <aside className="space-y-8 mt-10">
+          <div className="bg-white p-6 rounded-lg">
+            <h3 className="text-sm font-semibold text-gray-600 mb-4">
+              ABOUT THE AUTHOR
+            </h3>
+            <hr />
+            
+            <h4 className="text-black mt-10">James Clear writes about habits, decision making, and continuous
+              improvement. He is the author of the #1 New York Times bestseller,
+              Atomic Habits. The book has sold over 20 million copies worldwide
+              and has been translated into more than 60 languages.
+              James Clear writes about habits, decision making, and continuous
+              improvement. He is the author of the #1 New York Times bestseller,
+              Atomic Habits. The book has sold over 20 million copies worldwide
+              and has been translated into more than 60 languages.
+              James Clear writes about habits, decision making, and continuous
+              improvement. He is the author of the #1 New York Times bestseller,
+              Atomic Habits. The book has sold over 20 million copies worldwide
+              and has been translated into more than 60 languages.</h4>
+            <NavLink
+              to="/about"
+              className="inline-block mt-4 text-sm text-white hover:text-gray-300"
+            >
+              Click here to learn more →
+            </NavLink>
+          </div>
+        </aside>
+      </main>
     </div>
   );
-};
-
-export default BlogDetails;
+}

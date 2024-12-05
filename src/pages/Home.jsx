@@ -16,8 +16,8 @@ const Home = () => {
       <Banner />
       <FlashNews />
       <Carousel2/>
-      <Request />
       <Reports/>
+      <Request />
       {/* <EnterprenurSection/> */}
       <Footer />
       </header>
