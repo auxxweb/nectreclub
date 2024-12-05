@@ -1,0 +1,132 @@
+/* .scroll-container {
+    height: 100vh; 
+    overflow-y: auto; 
+    position: relative;
+    overflow-x: hidden; 
+  }
+  
+  .scroll-smooth {
+    animation: scroll-horizontal 20s linear infinite;
+  }
+  
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  } */
+
+/* cards.css */
+/* html, body {
+    height: 100%;
+    overflow: hidden;
+  } */
+  
+  .horizontal-scroll-container {
+    width: 100%;
+    height: 400px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent content from wrapping */
+    display: flex;
+    gap: 30px; 
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgb(255, 254, 253), rgb(238, 233, 238));
+    background-size: 120% auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; 
+   
+  }
+  
+  p {
+    color: #0c0303;
+    font-size: 4vw;
+    font-family: monospace;
+    display: inline-block; /* Ensure text stays on a single line */
+    margin: 0 20px; /* Space between paragraphs */
+  }
+  .card {
+    position: relative;
+    flex: 0 0 300px;
+    background: white;
+    border-radius: 15px;
+    width: 500px;
+    height: 310px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Hide overlay by default */
+    transition: opacity 0.3s ease;
+    padding: 15px;
+  }
+  
+  /* Show overlay only on hover */
+  .card:hover .card-overlay {
+    opacity: 1;
+  }
+  
+  /* Title and description always visible */
+  .card-title,
+  .card-description {
+    position: relative;
+    z-index: 2; /* Ensure these elements appear above the image */
+    color: #fff; /* White text for visibility */
+    margin: 10px;
+  }
+  
+  .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Button */
+  .card-button {
+    padding: 8px 15px;
+    border: none;
+    background: #ff5722;
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 2; /* Ensure button is above image */
+  }
+  
+  .card-button:hover {
+    background: #e64a19;
+  }

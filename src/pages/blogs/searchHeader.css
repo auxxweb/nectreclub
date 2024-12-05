@@ -1,0 +1,55 @@
+/* Base styling */
+.logo {
+    
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif; /* Example of a modern font */
+    color: #454516; /* Stylish color for the text */
+    font-size: 2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+  }
+  
+  .logo-text {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 5px; /* Adds space for the underline */
+  }
+  
+  /* Hover Effect */
+  .logo:hover .logo-text {
+    color: #321309; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge the text */
+  }
+  
+  .logo:hover .logo-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #51403b;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Additional icon styling (optional) */
+  .logo .logo-icon {
+    margin-right: 10px; /* Space between icon and text */
+    width: 24px;
+    height: 24px;
+    background-color: #071424; /* Icon color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover .logo-icon {
+    transform: rotate(360deg); /* Rotating icon on hover */
+  }
+  

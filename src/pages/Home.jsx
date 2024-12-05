@@ -5,18 +5,20 @@ import FlashNews from "./Flash";
 import Request from "./Request";
 import Footer from "./Footer";
 import Carousel2 from "./Carousel2";
+import Reports from "./Reports";
+import EnterprenurSection from './Reviews'
 
 const Home = () => {
   return (
     <div>
-        <header className="App-header">
-
-        
+      <header className="App-header">
       <Navbar />
       <Banner />
       <FlashNews />
       <Carousel2/>
+      <Reports/>
       <Request />
+      {/* <EnterprenurSection/> */}
       <Footer />
       </header>
     </div>

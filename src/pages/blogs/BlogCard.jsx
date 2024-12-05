@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './BlogCard.css';
 import { Link } from 'react-router-dom';
+import { SearchHeader } from './SearchHeader';
+import { ArticleCards } from './ArticleCards';
+import { Navigation } from './Navigations';
 
 const blogs = [
   {
@@ -33,9 +36,7 @@ const BlogCard = () => {
 
   return (
     <div className="blog-container">
-      <h1 className="blog-heading text-[40px] font-serif text-center">Blogs</h1>
-
-      {/* Search Bar */}
+      {/* <h1 className="blog-heading text-[40px] font-serif text-center">Blogs</h1>
       <div className="search-container text-center mb-5">
         <input
           type="search"
@@ -44,9 +45,7 @@ const BlogCard = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </div>
-
-      {/* Blog Cards */}
+      </div> */}
       <div className="blog-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5">
         {filteredBlogs.length > 0 ? (
           filteredBlogs.map((blog) => (
