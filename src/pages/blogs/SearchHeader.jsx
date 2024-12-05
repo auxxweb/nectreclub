@@ -7,7 +7,7 @@ import './searchHeader.css'
 
 export function SearchHeader() {
   return (
-    <header className="sticky top-0 mt-5 z-50 h-15 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky  top-0 mt-5 z-50 h-15 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
     <div className="container flex  items-center gap-4">
       <a href="#" className="logo flex items-center space-x-2">
         <span className="logo-text text-3xl font-bold text-black duration-200">
