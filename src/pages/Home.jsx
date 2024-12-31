@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Carousel2 from "./Carousel2";
 import Reports from "./Reports";
 import EnterprenurSection from './Reviews'
+import ContactForm from "./ContactForm";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Carousel2/>
       <Reports/>
       <Request />
+      <ContactForm/>
       {/* <EnterprenurSection/> */}
       <Footer />
       </header>
