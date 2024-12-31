@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebookF, FaWhatsapp, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"; // Make sure you have react-icons installed
 
 const Footer = () => {
+
+  
+
   return (
     <div className="mt-32">
       {/* Footer Container */}
